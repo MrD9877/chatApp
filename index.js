@@ -1,8 +1,8 @@
-import express from "express";
+const express = require("express");
 const app = express();
-import http from "http";
+const http = require("http");
 const server = http.createServer(app);
-import { Server } from "socket.io";
+const { Server } = require("socket.io");
 
 const secret = "secret";
 
