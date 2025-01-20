@@ -49,6 +49,9 @@ io.on("connection", (socket) => {
   socket.on("request:after:course", ({ from, to }) => {
     io.to(to).emit("request:after:course", { from });
   });
+  socket.on("request:after:request", ({ from, to }) => {
+    io.to(to).emit("request:after:request", { from });
+  });
 
   socket.on("disconnect", () => {
     console.log("A user disconnected:", socket.id);
