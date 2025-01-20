@@ -31,18 +31,15 @@ io.on("connection", (socket) => {
   });
 
   socket.on("call:accepted", ({ to, answer, from }) => {
-    console.log(to, from, answer);
     io.to(to).emit("callRequest:accepted", { answer, from });
   });
 
   socket.on("peer:negotiation", ({ from, to, offer }) => {
-    // console.log("peer:negotiation", offer);
-    console.log("inneed", to, "from:", from);
     io.to(to).emit("peer:negotiation", { from, offer });
   });
 
   socket.on("peer:negotiation:done", ({ from, to, answer }) => {
-    console.log("peer:negotiation:done", answer);
+    console.log("done");
     io.to(to).emit("peer:negotiation:done", { from, answer });
   });
 
