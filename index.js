@@ -46,6 +46,10 @@ io.on("connection", (socket) => {
     io.to(to).emit("peer:negotiation:done", { from, answer });
   });
 
+  socket.on("request:after:course", ({ from, to }) => {
+    io.to(to).emit("request:after:course", { from });
+  });
+
   socket.on("disconnect", () => {
     console.log("A user disconnected:", socket.id);
   });
